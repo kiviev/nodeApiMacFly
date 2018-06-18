@@ -1,5 +1,7 @@
 const KoaRouter = require('koa-router');
 const logger = require('logger.js');
+const NoteService = require('services/note.service');
+
 
 const router = new KoaRouter({
   prefix: process.env.API_VERSION + '/notes'
@@ -9,32 +11,32 @@ class NoteRouter{
 
     static async getNotes(ctx) {
         logger.info('[API-NoteRouter]@getNotes');
-        ctx.body = 'getNotes';
+        ctx.body = await NoteService.getNotes();
     }
 
     static async getNoteById(ctx) {
        logger.info('[API-NoteRouter]@getNoteById');
-       ctx.body = 'getNoteById';
+       ctx.body = await NoteService.getNoteById(ctx.params.id);
     }
     
     static async createNote(ctx) {
         logger.info('[API-NoteRouter]@createNote');
-        ctx.body = 'createNote';
+        ctx.body = await NoteService.createNote(ctx.request.body);
     }
 
     static async updateNote(ctx) {
         logger.info('[API-NoteRouter]@updateNote');
-        ctx.body = 'updateNote';
+        ctx.body = await NoteService.updateNoteById(ctx.params.id, ctx.request.body);
     }
 
     static async deleteNote(ctx) {
       logger.info('[API-NoteRouter]@deleteNote');
-      ctx.body = 'deleteNote';
+      ctx.body = await NoteService.deleteNote(ctx.params.id);
     }
 
     static async setFavNote(ctx) {
         logger.info('[API-NoteRouter]@setFavNote');
-        ctx.body = 'setFavNote';
+        ctx.body = await NoteService.setFavNote(ctx.params.id);
     }
 
 }
