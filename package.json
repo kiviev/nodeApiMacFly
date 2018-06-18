@@ -1,0 +1,33 @@
+{
+  "name": "node_api_mc_fly",
+  "version": "0.0.1",
+  "description": "Prueba para Kubide",
+  "main": "server.js",
+  "scripts": {
+    "start": "cross-env NODE_PATH=. NODE_ENV=production nodemon server.js | bunyan",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiviev/nodeApiMacFly.git"
+  },
+  "keywords": [
+    "api",
+    "node"
+  ],
+  "author": "Paco Alba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiviev/nodeApiMacFly/issues"
+  },
+  "homepage": "https://github.com/kiviev/nodeApiMacFly#readme",
+  "dependencies": {
+    "bunyan": "1.8.12",
+    "cross-env": "5.2.0",
+    "dotenv": "6.0.0",
+    "jest": "23.1.0",
+    "koa": "2.5.1",
+    "koa-logger": "3.2.0",
+    "nodemon": "1.17.5"
+  }
+}
