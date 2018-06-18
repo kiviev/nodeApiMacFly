@@ -43,6 +43,7 @@ router.get('/', NoteRouter.getNotes);
 router.get('/:id', NoteRouter.getNoteById);
 router.post('/', NoteRouter.createNote);
 router.put('/:id', NoteRouter.updateNote);
+router.put('/fav/:id', NoteRouter.setFavNote);
 router.delete('/:id', NoteRouter.deleteNote);
 
 module.exports = router;
