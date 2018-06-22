@@ -9,6 +9,7 @@ const logger = require('logger.js');
 const apiversion = process.env.API_VERSION;
 
 // Routers
+const homeApiRouter = require('routes/' + apiversion + '/home.router');
 const notesApiRouter = require('routes/' + apiversion + '/note.router');
 const favApiRouter = require('routes/' + apiversion + '/fav.router');
 
@@ -32,13 +33,13 @@ app.use(async (ctx, next) => {
     if (error.statusCode) {
       ctx.throw(error.statusCode, error.message);
     }
-    // ctx.throw(500, 'Internal server error');
   }
 
 });
 
 
 
+app.use(homeApiRouter.middleware());
 app.use(notesApiRouter.middleware());
 app.use(favApiRouter.middleware());
 

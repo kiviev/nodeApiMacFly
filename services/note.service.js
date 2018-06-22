@@ -19,11 +19,11 @@ class NoteService {
             if (!note) {
               throw new NotFoundError('Note not found');
             }
+            return note
             
         } catch (error) {
             throw new NotFoundError('Note not found');
         }
-        return note;
     }
 
     static async createNote(body) {
@@ -44,9 +44,9 @@ class NoteService {
     static async updateNoteById(id, body) {
         logger.info('[NoteService]@updateNoteById');
         const note = await NoteService.getNoteById(id);
-        note.local.title = body.title;
-        note.local.text = body.text;
-        note.local.favorite = body.favorite;
+        note.title = body.title;
+        note.text = body.text;
+        note.favorite = body.favorite;
 
         await note.save();
 
