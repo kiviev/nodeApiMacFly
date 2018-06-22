@@ -20,7 +20,7 @@ class NoteRouter{
     }
     
     static async createNote(ctx) {
-        logger.info('[API-NoteRouter]@createNote');
+        logger.info('[API-NoteRouter]@createNote');        
         ctx.body = await NoteService.createNote(ctx.request.body);
     }
 
@@ -33,19 +33,17 @@ class NoteRouter{
       logger.info('[API-NoteRouter]@deleteNote');
       ctx.body = await NoteService.deleteNote(ctx.params.id);
     }
-
-    static async setFavNote(ctx) {
-        logger.info('[API-NoteRouter]@setFavNote');
-        ctx.body = await NoteService.setFavNote(ctx.params.id);
-    }
+    
 
 }
+
+
 
 router.get('/', NoteRouter.getNotes);
 router.get('/:id', NoteRouter.getNoteById);
 router.post('/', NoteRouter.createNote);
 router.put('/:id', NoteRouter.updateNote);
-router.put('/fav/:id', NoteRouter.setFavNote);
 router.delete('/:id', NoteRouter.deleteNote);
+
 
 module.exports = router;
