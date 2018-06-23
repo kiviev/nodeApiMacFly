@@ -9,8 +9,8 @@ const router = new KoaRouter({
 
 class HomeRouter {
 
-  static async getNotes(ctx) {
-    logger.info('[API-HomeRouter]@getNotes');
+  static async getHome(ctx) {
+    logger.info('[API-HomeRouter]@getHome');
     ctx.body = {
         statusCode : 400,
         msg:'Api Notes'
@@ -20,7 +20,7 @@ class HomeRouter {
 
 
 
-router.get('/', HomeRouter.getNotes);
+router.get('/', HomeRouter.getHome);
 
 
 module.exports = router;

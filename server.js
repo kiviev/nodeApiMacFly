@@ -56,7 +56,6 @@ mongoose.connect(getMongoUri(config.dbuse), onDBready);
 
 
 
-
 function getMongoUri(mongoconfig) {
   let conf = config.db[mongoconfig];
   let uri = '';
@@ -74,3 +73,7 @@ function getMongoUri(mongoconfig) {
   logger.info('CONEXION to MONGO', mongoconfig, 'in:', uri)
   return uri;
 }
+
+
+
+module.exports = app;

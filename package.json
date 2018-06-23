@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "cross-env NODE_PATH=. NODE_ENV=production nodemon server.js | bunyan",
-    "test": "test"
+    "test": "NODE_PATH=. jest --colors"
   },
   "repository": {
     "type": "git",
@@ -21,16 +21,24 @@
     "url": "https://github.com/kiviev/nodeApiMacFly/issues"
   },
   "homepage": "https://github.com/kiviev/nodeApiMacFly#readme",
+   "jest": {
+     "testRegex": ".*.test\\.js$",
+     "verbose": true
+   },
+
   "dependencies": {
     "bunyan": "1.8.12",
     "cross-env": "5.2.0",
     "dotenv": "6.0.0",
-    "jest": "23.1.0",
     "koa": "2.5.1",
     "koa-bodyparser": "4.2.1",
     "koa-logger": "3.2.0",
     "koa-router": "7.4.0",
     "mongoose": "5.1.6",
     "nodemon": "1.17.5"
+  },
+  "devDependencies": {
+    "jest": "23.1.0",
+    "supertest": "3.1.0"
   }
 }
