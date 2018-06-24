@@ -32,7 +32,6 @@ class NoteService {
         let note = await NoteValidator.new(body);
         if (note) {
             await note.save();
-            console.log(note);
             
             return note;
         } else {
@@ -56,7 +55,6 @@ class NoteService {
     static async deleteNote(id) {
         logger.info('[NoteService]@deleteNote');
         const note = await NoteService.getNoteById(id);
-        console.log(note);
         
         if (note) {
             note.remove();
