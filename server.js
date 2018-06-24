@@ -43,7 +43,7 @@ app.use(homeApiRouter.middleware());
 app.use(notesApiRouter.middleware());
 app.use(favApiRouter.middleware());
 
-app.listen(port, (err) => {
+const server = app.listen(port, (err) => {
     logger.info('[Server] Init');
   if (err) {
     logger.info('[Server] Init Error:', err);
@@ -74,6 +74,9 @@ function getMongoUri(mongoconfig) {
   return uri;
 }
 
+function stopApp(server){
+  server.close()
+}
 
-
-module.exports = app;
+module.exports.app = app;
+module.exports.server = server;
